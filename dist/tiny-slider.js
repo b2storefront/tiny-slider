@@ -1227,7 +1227,7 @@ var tns = function(options) {
       raf(function(){ imgsLoadedCheck(arrayFromNodeList(imgs), function() { imgsComplete = true; }); });
 
       // reset imgs for auto height: check visible imgs only
-      if (hasOption('autoHeight')) { imgs = getImageArray(index, Math.min(index + items - 1, slideCountNew - 1)); }
+      if (hasOption('autoHeight')) { imgs = getImageArrayForLazy(index, Math.min(index + items - 1, slideCountNew - 1)); }
 
       lazyload ? initSliderTransformStyleCheck() : raf(function(){ imgsLoadedCheck(arrayFromNodeList(imgs), initSliderTransformStyleCheck); });
 
@@ -2321,7 +2321,7 @@ var tns = function(options) {
   // check if all visible images are loaded
   // and update container height if it's done
   function doAutoHeight () {
-    var imgs = getImageArray.apply(null, getVisibleSlideRange());
+    var imgs = getImageArrayForLazy.apply(null, getVisibleSlideRange());
     raf(function(){ imgsLoadedCheck(imgs, updateInnerWrapperHeight); });
   }
 
