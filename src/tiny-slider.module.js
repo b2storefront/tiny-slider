@@ -1863,7 +1863,7 @@ export var tns = function(options) {
     if (slideItems.length > (end + loadPrevNext)) {
       end = end + loadPrevNext;
     } else {
-      end = slideItems.length;
+      end = slideItems.length - 1;
     }
 
     var imgs = [];
@@ -1873,8 +1873,7 @@ export var tns = function(options) {
     }
 
     window.imgs = imgs;
-
-    console.log(imgs)
+    window.slideItems = slideItems;
 
     return imgs;
   }
