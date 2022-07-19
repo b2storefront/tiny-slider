@@ -1816,6 +1816,7 @@ export var tns = function(options) {
           addClass(img, 'loading');
         }
       });
+    })
     }
   }
 
