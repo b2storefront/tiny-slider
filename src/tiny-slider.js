@@ -1791,12 +1791,10 @@ export var tns = function(options) {
 
   function doLazyLoad () {
     if (lazyload && !disable) {
-      getImageArrayForLazy.apply(null, getVisibleSlideRange()).forEach(function (img) {
-
       var arg = getVisibleSlideRange();
       arg.push(lazyloadSelector);
 
-      getImageArray.apply(null, arg).forEach(function (img) {
+      getImageArrayForLazy.apply(null, getVisibleSlideRange()).forEach(function (img) {
 
         if (!hasClass(img, imgCompleteClass)) {
           // stop propagation transitionend event to container
@@ -1816,7 +1814,6 @@ export var tns = function(options) {
           addClass(img, 'loading');
         }
       });
-    })
     }
   }
 
