@@ -1856,10 +1856,14 @@ export var tns = function(options) {
   function getImageArrayForLazy (start, end) {
     if ((start - loadPrevNext) >= 0) {
       start = start - loadPrevNext;
+    } else {
+      start = 0;
     }
 
     if (slideItems.length > (end + loadPrevNext)) {
       end = end + loadPrevNext;
+    } else {
+      end = slideItems.length;
     }
 
     var imgs = [];
@@ -1867,6 +1871,10 @@ export var tns = function(options) {
       forEach(slideItems[start].querySelectorAll('img'), function (img) { imgs.push(img); });
       start++;
     }
+
+    window.imgs = imgs;
+
+    console.log(imgs)
 
     return imgs;
   }
